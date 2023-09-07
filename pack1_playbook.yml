@@ -22,6 +22,7 @@
         name: gatsby-cli
         global: yes
 
-    - name: Install EPEL repository
-      shell: yum install -y epel-release
-      when: ansible_distribution == 'Amazon' # Distribution ici
+    - name: Install the EPEL repository package
+      yum:
+        name: epel-release
+        state: present
