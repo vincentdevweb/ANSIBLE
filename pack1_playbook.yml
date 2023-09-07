@@ -22,7 +22,21 @@
         name: gatsby-cli
         global: yes
 
-    - name: Install the EPEL repository package
-      yum:
+    - name: Install EPEL repository
+     yum:
         name: epel-release
         state: present
+
+    - name: Ensure EPEL repo is enabled
+      ini_file:
+        dest: /etc/yum.repos.d/epel.repo
+        section: epel
+        option: enabled
+        value: '1'
+
+    - name: Conduct yum update 
+      yum: 
+        name: * 
+        state: latest
+        become: True
+        update_cache: True
