@@ -6,7 +6,7 @@
   tasks:
     - name: Transfer Gatsby site files
       copy:
-        src: /gatsby/public/
+        src: ./gatsby/public/
         dest: /var/www/html/
 
     - name: Install Apache web server
@@ -22,7 +22,7 @@
 
     - name: Configure Apache virtual host for Gatsby site
       template:
-        src: /gatsby-site.conf.j2
+        src: ./gatsby-site.conf.j2
         dest: /etc/httpd/conf.d/gatsby-site.conf
       # Créez un modèle (Jinja2) gatsby-site.conf.j2 avec la configuration Apache appropriée pour votre site Gatsby.
 
