@@ -4,7 +4,7 @@
 git fetch --all
 
 # Réinitialiser votre branche actuelle pour correspondre à la branche distante spécifiée (changez branch-name)
-git reset --hard origin/master
+git reset --hard origin
 
 # Afficher un message de confirmation
 echo "Git pull forcé effectué avec succès."
