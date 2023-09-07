@@ -29,12 +29,12 @@
         option: enabled
         value: '1'
 
-    - name: Conduct yum update 
-      yum: 
-        name: yum update
-        state: latest
-        become: True
-        update_cache: True
+    # - name: Conduct yum update 
+    #   yum: 
+    #     name: yum update
+    #     state: latest
+    #     become: True
+    #     update_cache: True
 
     # - name: Install EPEL repository
     #   yum:
