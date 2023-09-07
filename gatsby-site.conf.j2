@@ -1,12 +1,12 @@
 <VirtualHost *:80>
     ServerAdmin webmaster@example.com
     ServerName testgatby.com
-    DocumentRoot /gatsby/public
+    DocumentRoot /home/ec2-user/ANSIBLE/gatsby/public
 
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 
-    <Directory /gatsby/public>
+    <Directory /home/ec2-user/ANSIBLE/gatsby/public>
         Options FollowSymLinks
         AllowOverride All
         Require all granted
