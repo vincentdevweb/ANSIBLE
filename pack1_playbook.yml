@@ -3,20 +3,27 @@
   hosts: instances # Le nom du groupe d'hôtes spécifié dans le fichier hosts.ini
   become: yes # Privilège sudo
   tasks:
-  - name: Install gcc-c++ and make
-    ansible.builtin.yum:
-      name:
-        - gcc-c++
-        - make
-    state: present
+    - name: Install gcc-c++ and make
+      yum:
+        name:
+          - gcc-c++
+          - make
+        state: present
 
-  - name: Install Node.js et npm depuit le depot officiels
-    ansible.builtin.yum:
-      name: nodejs
-      state: present
-      enablerepo: epel
+    - name: Add the EPEL repository
+      yum:
+        name: epel-release
+        state: present
 
-  - name: Install Gatsby CLI avec npm
-    ansible.builtin.npm:
-      name: gatsby-cli
-      global: yes
+    - name: Install Node.js and npm from official repository
+      yum:
+        name:
+          - nodejs
+          - npm
+        state: present
+
+    - name: Install Gatsby CLI with npm
+      npm:
+        name: gatsby-cli
+        global: yes
+
