@@ -1,3 +1,4 @@
+---
 - name: Install Node.js, npm, Gatsby CLI, gcc-c++, and make
   hosts: instances # Le nom du groupe d'hôtes spécifié dans le fichier hosts.ini
   become: yes # Privilège sudo
