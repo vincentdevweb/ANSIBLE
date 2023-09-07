@@ -2,7 +2,6 @@
     ServerAdmin webmaster@example.com
     ServerName testgatby.com
     DocumentRoot /var/www/html
-
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 
@@ -12,7 +11,4 @@
         Require all granted
     </Directory>
 
-    RewriteEngine on
-    RewriteCond %{SERVER_NAME} =testgatby.com
-    RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
 </VirtualHost>
