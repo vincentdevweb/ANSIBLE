@@ -23,7 +23,7 @@
         global: yes
 
     - name: Install EPEL repository
-     yum:
+      yum:
         name: epel-release
         state: present
 
