@@ -1,24 +1,21 @@
 - name: Install Node.js, npm, Gatsby CLI, gcc-c++, and make
-  hosts: instances  # Le nom du groupe d'hôtes spécifié dans le fichier hosts.ini
-  become: yes        # Privilège sudo
+  hosts: instances # Le nom du groupe d'hôtes spécifié dans le fichier hosts.ini
+  become: yes # Privilège sudo
   tasks:
-    - name: Install gcc-c++ and make
-      ansible.builtin.yum:
-        name:
-          - gcc-c++
-          - make
+  - name: Install gcc-c++ and make
+    ansible.builtin.yum:
+      name:
+        - gcc-c++
+        - make
+    state: present
+
+  - name: Install Node.js et npm depuit le depot officiels
+    ansible.builtin.yum:
+      name: nodejs
       state: present
+      enablerepo: epel
 
-    - name: Install Node.js et npm depuit le depot officiels
-      ansible.builtin.yum:
-        name: nodejs
-        state: present
-        enablerepo: epel
-    
-    - name: Install Gatsby CLI avec npm
-      ansible.builtin.npm:
-        name: gatsby-cli
-        global: yes
-
-    
-
+  - name: Install Gatsby CLI avec npm
+    ansible.builtin.npm:
+      name: gatsby-cli
+      global: yes
