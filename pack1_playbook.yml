@@ -10,11 +10,6 @@
           - make
         state: present
 
-    - name: Add the EPEL repository
-      yum:
-        name: epel-release
-        state: present
-
     - name: Install Node.js and npm from official repository
       yum:
         name:
@@ -27,3 +22,6 @@
         name: gatsby-cli
         global: yes
 
+    - name: Install EPEL repository
+      shell: yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm
+      when: ansible_distribution == 'CentOS' # Vérifiez votre distribution ici
