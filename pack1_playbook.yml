@@ -36,7 +36,7 @@
         become: True
         update_cache: True
 
-    - name: Install EPEL repository
-      yum:
-        name: epel-release
-        state: present
+    # - name: Install EPEL repository
+    #   yum:
+    #     name: epel-release
+    #     state: present
