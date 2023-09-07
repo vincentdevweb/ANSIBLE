@@ -24,4 +24,4 @@
 
     - name: Install EPEL repository
       shell: yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm
-      when: ansible_distribution == 'Amazon Linux' # Vérifiez votre distribution ici
+      when: ansible_distribution == 'Amazon' # Distribution ici
