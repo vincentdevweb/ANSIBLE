@@ -6,7 +6,7 @@
   tasks:
     - name: Transfer Gatsby site files
       copy:
-        src: /gatsby/antsible-gatsby/public
+        src: /gatsby/public
         dest: /var/www/html/
 
     - name: Install Apache web server
