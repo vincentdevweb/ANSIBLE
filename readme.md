@@ -1,0 +1,1 @@
+chmod +x force-git-pull.sh

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Se rendre dans le répertoire du dépôt Git
+#cd /chemin/vers/votre/depot
+
 # Récupérer toutes les modifications des branches distantes
 git fetch --all
 
