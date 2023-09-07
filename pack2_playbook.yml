@@ -1,0 +1,32 @@
+---
+- name: Deploy Gatsby site on Apache
+  hosts: gatsby
+  become: yes
+
+  tasks:
+    - name: Transfer Gatsby site files
+      copy:
+        src: /gatsby/antsible-gatsby/public
+        dest: /var/www/html/
+
+    - name: Install Apache web server
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start Apache service
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Configure Apache virtual host for Gatsby site
+      template:
+        src: /gatsby-site.conf.j2
+        dest: /etc/httpd/conf.d/gatsby-site.conf
+      # Créez un modèle (Jinja2) gatsby-site.conf.j2 avec la configuration Apache appropriée pour votre site Gatsby.
+
+    - name: Reload Apache to apply changes
+      service:
+        name: httpd
+        state: reloaded

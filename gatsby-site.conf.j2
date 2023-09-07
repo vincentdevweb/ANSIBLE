@@ -1,0 +1,18 @@
+<VirtualHost *:80>
+    ServerAdmin webmaster@example.com
+    ServerName testgatby.com
+    DocumentRoot /gatsby/antsible-gatsby/public
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    <Directory /gatsby/antsible-gatsby/public>
+        Options FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    RewriteEngine on
+    RewriteCond %{SERVER_NAME} =testgatby.com
+    RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+</VirtualHost>
