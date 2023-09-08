@@ -5,7 +5,7 @@
 
   tasks:
     - name: Transfer Gatsby site files
-      synchronize:
+      copy:
         src: /home/ec2-user/ANSIBLE/gatsby/public/
         dest: /var/www/html/
 
