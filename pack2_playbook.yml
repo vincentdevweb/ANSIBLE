@@ -1,6 +1,6 @@
 ---
 - name: Deploy Gatsby site on Apache
-  hosts: gatsby
+  hosts: target1
   become: yes
 
   tasks:
