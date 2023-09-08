@@ -5,7 +5,7 @@
 
   tasks:
     - name: Transfer Gatsby site files
-      copy:
+      synchronize:
         src: /home/ec2-user/ANSIBLE/gatsby/public/
         dest: /var/www/html/
 
@@ -20,13 +20,13 @@
         state: started
         enabled: yes
 
-    - name: Configure Apache virtual host for Gatsby site
-      template:
-        src: /home/ec2-user/ANSIBLE/gatsby-site.conf.j2
-        dest: /etc/httpd/conf.d/gatsby-site.conf
-      # Créez un modèle (Jinja2) gatsby-site.conf.j2 avec la configuration Apache appropriée pour votre site Gatsby.
+    # - name: Configure Apache virtual host for Gatsby site
+    #   template:
+    #     src: /home/ec2-user/ANSIBLE/gatsby-site.conf.j2
+    #     dest: /etc/httpd/conf.d/gatsby-site.conf
+    #   # Créez un modèle (Jinja2) gatsby-site.conf.j2 avec la configuration Apache appropriée pour votre site Gatsby.
 
-    - name: Reload Apache to apply changes
-      service:
-        name: httpd
-        state: reloaded
+    # - name: Reload Apache to apply changes
+    #   service:
+    #     name: httpd
+    #     state: reloaded
